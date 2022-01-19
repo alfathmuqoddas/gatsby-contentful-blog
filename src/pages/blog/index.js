@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../../layout/layout'
+import './index.css'
 
 const Index = ({data}) => {
   return (
@@ -13,8 +14,8 @@ const Index = ({data}) => {
             data.allContentfulPost.nodes.map(node => (
               <div key={node.id} className="col">
               <Link to={node.blogPath} className="text-dark text-decoration-none">
-                <div className="card mb-3">
-                  <img src={node.hero.file.url} className="card-img-top" alt="photos" />
+                <div className="card card-hover mb-3" style={{maxHeight: '500px'}}>
+                  <img src={node.hero.file.url} className="card-img-top" alt="photos" style={{maxHeight: '150px'}}/>
                   <div className="card-body">
                     <div className="d-flex justify-content-between">
                     <h5 className="card-title">{node.title}</h5>

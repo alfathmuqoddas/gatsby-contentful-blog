@@ -1,0 +1,32 @@
+# # comment = ctrl + k + c
+# # pull official base image
+# FROM node:fermium-alpine3.15
+
+# # set workin directory
+# WORKDIR /app
+
+# # add `/app/node_modules/.bin` to $PATH
+# ENV PATH /app/node_modules/.bin:$PATH
+
+# # install app dep
+# COPY package.json ./
+# COPY package-lock.json ./
+# RUN npm install --silent
+
+# # add app
+# COPY . ./
+
+# CMD [ "npm", "run", "start" ]
+
+FROM node:alpine
+WORKDIR /app
+
+# COPY the package.json file, update any deps and install them
+COPY package.json .
+RUN npm update
+RUN npm install
+
+# copy the whole source folder(the dir is relative to the Dockerfile
+COPY . .
+
+CMD [ "npm", "run", "start" ]

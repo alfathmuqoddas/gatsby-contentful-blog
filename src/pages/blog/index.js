@@ -2,10 +2,16 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../../layout/layout'
 import './index.css'
+import { Helmet } from "react-helmet"
 
 const Index = ({data}) => {
   return (
 	<>
+  <Helmet>
+          <meta charSet="utf-8" />
+          <title>All Blogs | Muqoddas</title>
+        {/*<link rel="canonical" href="http://muqoddas.github.io/blog/" />*/}
+        </Helmet>
   <Layout>
     <div className="py-5">
     	<div className="container">
@@ -19,7 +25,7 @@ const Index = ({data}) => {
                   <div className="card-body">
                     <div className="d-flex justify-content-between">
                     <h5 className="card-title">{node.title}</h5>
-                    <p className="m-0">{node.date}</p>
+                    <p className="m-0">{node.createdAt}</p>
                     </div>
                     <p className="card-text">{node.body.childMarkdownRemark.excerpt}</p>
                   </div>
@@ -38,7 +44,7 @@ const Index = ({data}) => {
 
 export const query = graphql`
 query MyQuery {
-  allContentfulPost {
+  allContentfulPost(filter: {node_locale: {eq: "id-ID"}}) {
     nodes {
       title
       blogPath: gatsbyPath(filePath: "/blog/{contentfulPost.title}")
@@ -52,7 +58,7 @@ query MyQuery {
           url
         }
       }
-      date(formatString: "DD MMM YYYY")
+      createdAt(formatString: "HH:MM DD MMM YYYY")
     }
   }
 }

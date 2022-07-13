@@ -25,7 +25,7 @@ const Layout = ({children}) => {
 		<div style={{minHeight: '100vh'}}>{children}</div>
 		<div className="py-5 bg-light">
 			<div className="container text-center">
-			Alfath Muqoddas 2022
+			Alfath Muqoddas ©{(new Date().getFullYear())}
 			</div>
 		</div>
 		</>

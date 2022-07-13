@@ -1,10 +1,14 @@
 import React from 'react'
 import {Link} from 'gatsby'
-//import {Helmet} from 'react-helmet'
+import {Helmet} from 'react-helmet'
 
 const Layout = ({children}) => {
 	return (
 		<>
+		<Helmet>
+		  <link rel="icon" type="image/png" href="./icon.png" />
+          {/*<link rel="canonical" href="http://muqoddas.github.io" />*/}
+    	</Helmet>
 		<nav className="navbar navbar-expand-lg navbar-dark bg-success">
 		  <div className="container">
 		    <Link to="/" className="navbar-brand">Contentful Blog</Link>

@@ -11,7 +11,7 @@ const Index = ({data}) => {
           <meta charSet="utf-8" />
           <title>All Blogs | Muqoddas</title>
         {/*<link rel="canonical" href="http://muqoddas.github.io/blog/" />*/}
-        </Helmet>
+  </Helmet>
   <Layout>
     <div className="py-5">
     	<div className="container">
